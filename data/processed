@@ -1,0 +1,9 @@
+Processed Data
+This directory contains cleaned and transformed datasets produced during the SQL preparation workflow.
+Typical outputs include:
+Cleaned sales records
+Validated store records
+Integrated store/date records
+Analytical master dataset
+Time-series aggregation used for forecasting
+Processed data should only be committed when redistribution is permitted.
