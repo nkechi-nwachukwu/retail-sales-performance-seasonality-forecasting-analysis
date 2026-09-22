@@ -1,0 +1,19 @@
+Forecasting Methodology
+Objective
+- The forecasting component extends historical sales patterns into future periods to provide a quantitative planning baseline.
+Approach
+- The project uses Tableau's built-in forecasting functionality on the historical sales time series.
+- The forecast is based on the observed historical series and should be interpreted in the context of:
+Trend
+- Recurring seasonal behavior
+- Historical variation
+- The selected time aggregation
+Business Use
+Forecast results can support:
+- Inventory planning
+- Workforce planning
+- Capacity preparation
+- Sales target setting
+- Seasonal readiness
+Important Limitation
+A forecast is not a guarantee of future sales. Unexpected operational, economic, promotional, supply or demand changes can cause actual sales to differ from the projected series.
