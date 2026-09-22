@@ -1,0 +1,10 @@
+Raw Data
+The raw Walmart datasets used for the analysis should be stored in this directory.
+The project integrates multiple source tables covering:
+- Historical weekly sales
+- Store attributes
+- External economic/environmental variables
+- Holiday indicators
+- Promotional/markdown variables where available
+Raw source files are intentionally excluded from version control where licensing, size, or redistribution restrictions apply.
+Document the original source, download date, and file names in the project documentation when adding the data locally.
