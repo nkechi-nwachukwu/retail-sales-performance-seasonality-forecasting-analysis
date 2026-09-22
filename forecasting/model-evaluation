@@ -1,0 +1,8 @@
+Model Evaluation
+Forecast performance should be assessed by comparing forecast values against actual sales after the forecast period becomes available.
+Recommended evaluation metrics include:
+MAE — Mean Absolute Error
+RMSE — Root Mean Squared Error
+MAPE — Mean Absolute Percentage Error, where appropriate
+Forecast bias
+The current project uses Tableau forecasting primarily as a planning baseline; a formal backtesting framework can be added as a future enhancement.
