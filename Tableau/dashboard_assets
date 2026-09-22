@@ -1,0 +1,12 @@
+Tableau
+This directory contains the Tableau workbook and exported dashboard assets.
+Recommended file:
+```text
+retail-sales-performance.twbx
+```
+Dashboard views:
+Executive Sales Overview
+Seasonality & Holiday Analysis
+Store & Department Performance
+Sales Drivers & Forecasting
+If the workbook is too large or cannot be redistributed, keep the workbook local and retain screenshots in `visuals/`.
