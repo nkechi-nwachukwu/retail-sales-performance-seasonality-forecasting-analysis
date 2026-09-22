@@ -1,0 +1,9 @@
+Forecast Results
+The Tableau forecasting view provides a forward-looking representation of expected sales based on historical patterns.
+The forecast should be evaluated alongside:
+Historical trend
+Seasonal behavior
+Holiday periods
+Store and department contribution
+Known operational changes
+The repository intentionally does not hard-code a single forecast value because forecast values depend on the selected Tableau time range, aggregation and forecast horizon.
