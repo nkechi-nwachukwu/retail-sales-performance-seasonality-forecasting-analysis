@@ -1,0 +1,10 @@
+Forecast Methodology
+The forecasting analysis uses historical sales as the primary time-series signal.
+The Tableau forecasting layer extends the historical series to provide expected future sales patterns.
+The forecast is intended to support planning rather than replace managerial judgment.
+Key planning applications include:
+- Inventory preparation
+- Workforce planning
+- Capacity planning
+- Seasonal readiness
+- Sales target development
