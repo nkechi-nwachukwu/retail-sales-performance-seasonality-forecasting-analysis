@@ -1,0 +1,15 @@
+Seasonality Analysis
+Objective
+- The seasonality analysis identifies recurring patterns in sales across time and evaluates the contribution of holiday periods.
+Findings
+- July and Q3 were among the strongest sales periods in the historical data.
+- Holiday-period sales contributed approximately 7.5% of total revenue.
+- Sales patterns demonstrate recurring temporal variation that should be incorporated into operational planning.
+Interpretation
+- Seasonality provides useful context for forecasting and planning because demand should not be treated as constant throughout the year.
+Peak periods can affect:
+- Inventory requirements
+- Staffing requirements
+- Replenishment
+- Logistics capacity
+- Promotional timing
