@@ -1,0 +1,15 @@
+Project Methodology
+This project follows a business-first analytics workflow:
+- Define business questions.
+- Profile source datasets.
+- Build relational relationships.
+- Clean and validate the data.
+- Create reusable SQL views.
+- Build a master analytical dataset.
+- Analyze sales performance.
+- Identify trends and seasonal patterns.
+- Examine external variables.
+- Apply forecasting.
+- Build interactive Tableau dashboards.
+- Translate findings into operational recommendations.
+The approach combines data engineering, business intelligence, time-series analysis and business interpretation.
