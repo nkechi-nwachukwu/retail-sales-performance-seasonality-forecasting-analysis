@@ -1,0 +1,21 @@
+Business Questions
+Sales Performance
+- What is the total sales performance across the historical period?
+- How does weekly sales change over time?
+- Which stores contribute the most sales?
+- Which departments contribute the most sales?
+- How concentrated is revenue across stores and departments?
+Seasonality
+- Which months and quarters demonstrate stronger sales?
+- Which periods consistently show lower demand?
+- How significant are holiday periods?
+- Are seasonal patterns consistent across stores and departments?
+Drivers
+- How do sales behave alongside temperature?
+- How do sales behave alongside fuel prices?
+- How do sales behave alongside CPI and unemployment?
+- What role do promotional/markdown indicators appear to play?
+Forecasting
+- What does the historical time series suggest about future sales?
+- Which seasonal patterns should be considered when planning inventory and staffing?
+- How should forecast outputs be incorporated into operational planning?
