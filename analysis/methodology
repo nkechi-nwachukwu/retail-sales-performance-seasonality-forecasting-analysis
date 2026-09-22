@@ -1,0 +1,38 @@
+Methodology
+1. Data Integration
+- Multiple datasets were loaded into a relational database and connected using shared business keys, primarily store and date identifiers.
+2. Data Cleaning
+The preparation process included:
+- Reviewing field types
+- Validating dates
+- Checking duplicate records
+- Checking missing values
+- Validating store and department identifiers
+- Reviewing sales values
+- Standardizing fields used in joins
+- Validating relationships between datasets
+3. SQL Transformation
+SQL was used to:
+- Join source datasets
+- Create reusable views
+- Aggregate sales
+- Calculate analytical KPIs
+- Prepare time-series data
+- Produce the master analytical dataset
+4. Exploratory Analysis
+The analysis examined:
+- Overall sales trends
+- Store contribution
+- Department contribution
+- Monthly and quarterly patterns
+- Holiday effects
+- External variables
+5. Forecasting
+- Historical sales were used in Tableau's forecasting functionality to establish a forward-looking sales baseline.
+6. Business Interpretation
+- Analytical results were translated into implications for:
+- Inventory
+- Workforce
+- Promotions
+- Store operations
+Resource allocation
