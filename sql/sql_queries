@@ -1,0 +1,226 @@
+-- OVERALL BUSINESS PERFORMANCE --
+		-- 1. Total Sales --
+CREATE VIEW total_sales AS
+Select Round(Sum(weekly_sales),2)AS Total_Sales
+From master_sales_table;
+
+		-- 2. Average Weekly Sales --
+CREATE VIEW avg_weekly_sales AS
+Select Round(Avg(weekly_sales),2)AS Avg_weekly_sales
+From master_sales_table;
+
+	-- 3. Total Number of Stores --
+CREATE VIEW no_of_stores AS
+Select count(Distinct store)AS Total_stores
+From master_sales_table;
+
+	-- 4. Total Dept --
+CREATE VIEW total_dept AS
+Select count(Distinct Dept)AS Total_Departments
+From master_sales_table;
+
+--  TIME TREND ANALYSIS --
+		-- 5. Highest Sales Month
+CREATE VIEW highest_sales_month AS
+Select MonthName(Date) AS Month,
+Round(Sum(weekly_sales),2) AS Total_Sales
+From master_sales_table
+Group by Month(Date), MonthName(Date)
+Order by Total_Sales DESC
+LIMIT 1;
+
+		-- 6. Monthly_sales_trend --
+CREATE VIEW monthly_sales_trend AS
+Select Year(Date) AS Year, Month(Date) AS Month_Number, MonthName(Date) AS Month,
+Round(Sum(weekly_sales),2) AS Total_Sales
+From master_sales_table
+Group by Year(Date),Month(Date), MonthName(Date)
+Order by Year, Month_Number;
+
+		-- 7. Quarterly_sales_trend --
+CREATE VIEW quarterly_sales_trend AS
+Select Year(Date) AS Year, Quarter(Date) AS Quarter,
+Round(Sum(weekly_sales),2) AS Total_Sales
+From master_sales_table
+Group by Year(Date),Quarter(Date)
+Order by Year, Quarter;
+
+		-- 8. weekly_sales_trend --
+CREATE VIEW weekly_sales_trend AS
+Select Date,
+Round(Sum(weekly_sales),2) AS weekly_total_sales
+From master_sales_table
+Group by Date
+Order by Date;
+
+	-- 9. Yearly_growth_trend --
+CREATE VIEW Yearly_growth_trend AS
+Select Year(Date) AS Year,
+Round(Sum(weekly_sales),2) AS Total_Sales
+From master_sales_table
+Group by Year(Date)
+Order by Year;
+
+-- STORE PERFORMANCE ANALYSIS--
+		-- 10. Top Performing Stores --
+CREATE VIEW top_performing_stores AS
+Select Store, Round(Sum(weekly_sales),2) AS Total_Sales
+From master_sales_table
+Group by store
+Order by total_sales DESC
+Limit 10;
+
+		-- 11. Low Performing Stores --
+CREATE VIEW low_performing_stores AS
+Select Store, Round(Sum(weekly_sales),2) AS Total_Sales
+From master_sales_table
+Group by store
+Order by total_sales 
+Limit 10;
+
+		 -- 12. Sales by Store Type--
+CREATE VIEW sales_by_storetype AS
+Select Type, Round(sum(weekly_sales),2) AS Total_Sales
+From master_sales_table
+Group by Type;
+
+		-- 13. Store Size vs Sales--
+CREATE VIEW store_vs_sales AS
+Select Size, Round(sum(weekly_sales),2) AS Total_Sales
+From master_sales_table
+Group by Size
+Order by Size Desc;
+
+-- DEPARTMENT ANALYSIS
+		-- 14. Top Departments--
+CREATE VIEW top_dept AS
+Select Dept, Round(sum(weekly_sales),2) AS Total_Sales
+From master_sales_table
+Group by Dept
+Order by Total_Sales Desc
+Limit 10;
+
+		-- 15. Lowest Departments--
+CREATE VIEW lowest_dept AS
+Select Dept, Round(sum(weekly_sales),2) AS Total_Sales
+From master_sales_table
+Group by Dept
+Order by Total_Sales 
+Limit 10;
+
+		-- 16. Avg Sales per Department--
+CREATE VIEW avg_dept_sales AS
+Select Dept, Round(avg(weekly_sales),2) AS Avg_Sales
+From master_sales_table
+Group by Dept
+Order by Avg_Sales Desc;
+
+ -- HOLIDAY & SEASONAL ANALYSIS--
+		-- 17. Holiday vs Non-Holiday Sales--
+ CREATE VIEW holiday_vs_nonholiday AS
+Select IsHoliday, Round(sum(weekly_sales),2) AS Total_Sales,
+Round(avg(weekly_sales),2) AS Avg_Sales
+From master_sales_table
+Group by IsHoliday;
+
+		-- 18. Holiday Sales %
+CREATE VIEW holiday_sales_pct AS
+Select Round(Sum(
+	CASE WHEN IsHoliday = 'True' THEN Weekly_Sales ELSE 0 END)
+    /Sum(Weekly_Sales),2) AS Holiday_Sales_Pct
+    From master_sales_table;
+    
+		-- 19. Holiday_monthly_trend --
+CREATE VIEW holiday_monthly_trend AS
+Select Month(Date) AS Month_Number, MonthName(Date) AS Month,
+Round(Sum(weekly_sales),2) AS Holiday_Sales
+From master_sales_table
+Where IsHoliday= 'TRUE'
+Group by Month(Date), MonthName(Date) 
+Order by Month_Number, Month;
+
+		-- 20. Sales_by_month_name --
+CREATE VIEW sales_by_month_name AS
+Select Month(Date) AS Month_Number, MonthName(Date) AS Month,
+Round(Sum(weekly_sales),2) AS Total_Sales
+From master_sales_table
+Group by Month(Date),MonthName(Date)
+Order by Month_Number;
+
+ -- EXTERNAL FACTOR ANALYSIS--
+		-- 21. Fuel_price_impact--
+ CREATE VIEW fuel_price_impact AS
+Select Round(fuel_price,1) AS Fuel_Level,
+Round(avg(weekly_sales),2) AS Sales
+From master_sales_table
+Group by Round(fuel_price,1)
+Order by Fuel_Level;
+
+		-- 22. Temperature_impact--
+ CREATE VIEW temperature_impact AS
+Select Round(temperature) AS Temp_Level,
+Round(avg(weekly_sales),2) AS Sales
+From master_sales_table
+Group by Round(temperature)
+Order by Temp_Level;
+
+		-- 23. CPI_impact--
+ CREATE VIEW CPI_impact AS
+Select Round(CPI) AS CPI_Level,
+Round(avg(weekly_sales),2) AS Sales
+From master_sales_table
+Group by Round(CPI)
+Order by CPI_Level;
+
+		-- 24. Unemployment_impact--
+CREATE VIEW Unemployment_impact AS
+Select Round(Unemployment,1) AS Unemployment_Level,
+Round(avg(weekly_sales),2) AS Sales
+From master_sales_table
+Group by Round(Unemployment,1)
+Order by Unemployment_Level;
+
+-- PROMOTION/MARKDOWN ANALYSIS--
+		-- 25. Promotion Impact --
+CREATE VIEW promotion_impact AS
+Select 
+	CASE 
+    WHEN COALESCE(MarkDown1,0) + COALESCE(MarkDown2,0) 
+    + COALESCE(MarkDown3,0) + COALESCE(MarkDown4,0)
+    + COALESCE(MarkDown5,0) = 0 THEN 'No Promotion'
+    ELSE 'Promotion'
+    END AS Promo_Status,
+Round(sum(weekly_sales),2) AS Sales
+From master_sales_table
+Group by Promo_Status;
+
+		-- 26. Promotion_sales_trend --
+CREATE VIEW promotion_sales_trend AS
+Select Year(Date) AS Year, Month(Date) AS Month_Number, MonthName(Date) AS Month,
+Round(Sum(weekly_sales),2) AS Total_Sales,
+Round(Sum(COALESCE(MarkDown1,0) + COALESCE(MarkDown2,0) 
+    + COALESCE(MarkDown3,0) + COALESCE(MarkDown4,0)
+    + COALESCE(MarkDown5,0)),2) AS Total_Promotions
+From master_sales_table
+Group by Year(Date),Month(Date), MonthName(Date)
+Order by Year, Month_Number;
+
+-- RISK/PROBLEM DETECTION --
+		-- 27. Negative Sales Investigation --
+CREATE VIEW negative_sales AS
+Select Store, Dept, 
+Count(*) AS Negative_Sales
+From master_sales_table
+Where weekly_sales < 0
+Group by store,dept
+Order by Negative_sales DESC; 
+
+		-- 28. Forecast Trend --
+CREATE VIEW forecast_trend AS
+Select Date,
+Round(Sum(weekly_sales),2) AS Total_sales
+From master_sales_table
+Group by Date
+Order by Date;
+
+		 
