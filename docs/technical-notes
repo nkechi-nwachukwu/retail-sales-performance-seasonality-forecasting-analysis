@@ -1,0 +1,20 @@
+Technical Notes
+Data Modeling
+Source datasets were integrated using shared identifiers such as:
+Store
+Date
+Department where applicable
+SQL Layer
+SQL was used as the transformation and analytical layer before Tableau reporting.
+Reusable SQL views were created to provide a consistent analytical source for dashboard development.
+Tableau Layer
+Tableau was connected to the prepared analytical dataset for:
+KPI reporting
+Trend analysis
+Seasonality analysis
+Store and department comparisons
+Driver analysis
+Forecasting
+Reproducibility
+Because the original source data may be subject to redistribution restrictions, raw files are not included in this repository by default.
+The SQL scripts document the analytical workflow and should be aligned with the locally loaded source tables.
