@@ -1,0 +1,27 @@
+Data Dictionary
+The project integrates Walmart-style retail sales data at store, department and date level with supporting store and external-factor datasets.
+Sales Data
+Field	Description
+Store	Store identifier
+Dept	Department identifier
+Date	Weekly sales date
+Weekly_Sales	Weekly sales amount
+IsHoliday	Holiday-period indicator
+Store Data
+Field	Description
+Store	Store identifier
+Type	Store type/classification
+Size	Store size
+External Factors
+Field	Description
+Store	Store identifier
+Date	Observation date
+Temperature	Recorded temperature
+Fuel_Price	Fuel price
+CPI	Consumer Price Index
+Unemployment	Unemployment rate
+MarkDown fields	Promotional/markdown measures where available
+Data Grain
+The primary sales grain is:
+Store × Department × Week
+The exact source schema should be retained when importing the original files.
