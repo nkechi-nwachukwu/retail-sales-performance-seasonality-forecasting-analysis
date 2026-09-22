@@ -1,0 +1,8 @@
+Limitations
+- Historical patterns may not persist unchanged into the future.
+- The analysis is primarily observational.
+- Correlation with external variables does not establish causation.
+- Sales data does not directly measure profitability.
+- Customer-level behavior is outside the primary analytical grain.
+- Forecasts can be affected by structural breaks and unexpected events.
+- Additional validation would be required before using forecast outputs as an operational commitment.
